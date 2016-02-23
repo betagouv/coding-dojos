@@ -1,0 +1,26 @@
+<html ng-app="protoApp">
+
+    <head>
+		<link rel="stylesheet" href="app.css">
+    </head>
+    
+    <body ng-controller="protoController">
+        
+        <h1 ng-bind="::welcomeMessage"></h1>
+        <h1 ng-cloak>{{welcomeMessage}}</h1>
+        <button ng-click="changeTitle()" >Change le titre</button>
+        
+        <h2>Utilisateurs :</h2>
+        Filtre : <input type="text" ng-model="userSearch">
+        <ul>
+            <li ng-repeat="user in users | filter:userSearch"> {{user.name | uppercase }} </li>
+        </ul>
+        
+        <input type="text" ng-model="newName">
+        <button ng-click="addUser()" >Ajouter</button>
+        
+    </body>
+    
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+</html>
